@@ -39,8 +39,7 @@ const config = {
           // Remove this to remove the "edit this page" links.
           path: "./blog",
           routeBasePath: '/',
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: undefined,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -74,7 +73,7 @@ const config = {
           },*/
         ],
       },
-      footer: {
+      footer: undefined,/*{
         style: 'dark',
         links: [
           {
@@ -118,7 +117,7 @@ const config = {
           },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
-      },
+      },*/
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
