@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[568],{8381:e=>{e.exports=JSON.parse('{"label":"Offset Binary","permalink":"/tags/offset-binary","allTagsPath":"/tags","count":1}')}}]);

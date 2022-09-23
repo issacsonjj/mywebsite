@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[206],{5274:e=>{e.exports=JSON.parse('{"label":"Excess-K","permalink":"/tags/excess-k","allTagsPath":"/tags","count":1}')}}]);

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Issacsonjj的博客 Blog</title>
+        <link>https://issacsonjj.github.io/</link>
+        <description>Issacsonjj的博客 Blog</description>
+        <lastBuildDate>Fri, 23 Sep 2022 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>zh-Hans</language>
+        <item>
+            <title><![CDATA[偏移二进制码]]></title>
+            <link>https://issacsonjj.github.io/offset-binary</link>
+            <guid>offset-binary</guid>
+            <pubDate>Fri, 23 Sep 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[在读《自己动手实现Lua：虚拟机、编译器和标准库》时，看到Lua内部表示有符号整数使用的是不常见的偏移二进制码，有些陌生，特此记录。]]></description>
+            <content:encoded><![CDATA[<p>在读《自己动手实现Lua：虚拟机、编译器和标准库》时，看到Lua内部表示有符号整数使用的是不常见的偏移二进制码，有些陌生，特此记录。</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="定义">定义<a class="hash-link" href="#定义" title="标题的直接链接">​</a></h3><p>对于一个有符号数n，其偏移二进制表示的位模式（bit pattern）为n+K的无符号数，K称为偏移量（biasing value或offset），故该编码方式又称为Excess-K码。</p><p>偏移二进制没有标准，但最常见的，对于n位二进制表示的数，K = <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2^{n-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em"><span style="top:-3.063em;margin-right:0.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span></span>。</p><p>对于8位表示的数，K = 128，典型数字的转换表如下：</p><table><thead><tr><th>偏移二进制值</th><th>对应的原码值</th><th>位模式</th></tr></thead><tbody><tr><td>-128</td><td>0</td><td>00000000</td></tr><tr><td>0</td><td>128</td><td>10000000</td></tr><tr><td>127</td><td>255</td><td>11111111</td></tr></tbody></table><p>仔细观察就会发现，只要把位模式的最高位取反，其补码值就是原来的值。</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="性质和应用">性质和应用<a class="hash-link" href="#性质和应用" title="标题的直接链接">​</a></h3><p>从转换表可以看到，全0表示最小的负值，全1表示最大的正数。想要比较两个数的大小，只要按位从高到低依次比较即可。相对于补码表示，你一眼就能看出两个数的大小。</p><p>当然，此特性主要不是为了加快目视比较的速度，而是方便DSP处理。大多数的AD芯片是单极性的，无法处理双极性信号。一个常用的解决方案是给模拟量添加一个相当于AD量程范围一半的偏置，这样就可以输出以偏移二进制码表示的结果了（学EE的同学，还记得逐次比较的ADC么？）。</p><p>至于为何Lua在指令时要使用此编码，有点百思不得其解。</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="参考">参考<a class="hash-link" href="#参考" title="标题的直接链接">​</a></h3><ul><li><a href="https://en.wikipedia.org/wiki/Offset_binary" target="_blank" rel="noopener noreferrer">维基百科</a></li><li>《自己动手实现Lua：虚拟机、编译器和标准库》</li></ul>]]></content:encoded>
+            <category>偏移二进制</category>
+            <category>Offset Binary</category>
+            <category>Excess-K</category>
+        </item>
+    </channel>
+</rss>
